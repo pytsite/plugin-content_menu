@@ -1,0 +1,10 @@
+content: 'Контент'
+
+odm_ui_browser_title_content_menu: 'Меню контента'
+odm_ui_form_title_create_content_menu: 'Новое меню'
+odm_ui_form_title_modify_content_menu: 'Изменение меню'
+odm_ui_form_title_delete_content_menu: 'Удаление меню'
+
+odm_auth_create_content_menu: 'Создание меню контента'
+odm_auth_modify_content_menu: 'Изменение меню контента'
+odm_auth_delete_content_menu: 'Удаление меню контента'

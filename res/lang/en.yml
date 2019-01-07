@@ -1,0 +1,10 @@
+content: 'Content'
+
+odm_ui_browser_title_content_menu: 'Content menu'
+odm_ui_form_title_create_content_menu: 'New menu item'
+odm_ui_form_title_modify_content_menu: 'Modify menu item'
+odm_ui_form_title_delete_content_menu: 'Delete menu item'
+
+odm_auth_create_content_menu: 'Create content menus'
+odm_auth_modify_content_menu: 'Modify content menus'
+odm_auth_delete_content_menu: 'Delete content menus'
