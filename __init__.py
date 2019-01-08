@@ -4,6 +4,8 @@ __author__ = 'Oleksandr Shepetko'
 __email__ = 'a@shepetko.com'
 __license__ = 'MIT'
 
+from ._model import ContentMenu
+
 
 def plugin_load():
     from pytsite import reg
@@ -12,4 +14,3 @@ def plugin_load():
 
     if reg.get('content_menu.register_default_model', True):
         menu.register_model('content_menu', _model.ContentMenu, __name__ + '@content')
-
