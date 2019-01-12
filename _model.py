@@ -38,8 +38,9 @@ class ContentMenu(_menu.Menu):
     def odm_ui_m_form_setup_widgets(self, frm: _form.Form):
         super().odm_ui_m_form_setup_widgets(frm)
 
-        frm.remove_widget('path')
-        frm.remove_widget('title')
+        for uid in ('_parent', 'path', 'title'):
+            if frm.has_widget(uid):
+                frm.remove_widget(uid)
 
         frm.add_widget(_content.widget.EntitySelect(
             uid='entity',
