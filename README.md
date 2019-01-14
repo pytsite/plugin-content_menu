@@ -4,6 +4,11 @@
 ## Changelog
 
 
+### 1.2.1 (2019-01-14)
+
+`plugin.json` fixed.
+
+
 ### 1.2 (2019-01-14)
 
 New `model.Menu.is_container` field added.
