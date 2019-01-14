@@ -1,4 +1,5 @@
 content: 'Content'
+is_container: 'Container'
 
 odm_ui_browser_title_content_menu: 'Content menu'
 odm_ui_form_title_create_content_menu: 'New menu item'
