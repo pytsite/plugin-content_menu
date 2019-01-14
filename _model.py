@@ -46,6 +46,13 @@ class ContentMenu(_menu.Menu):
             if self.entity:
                 self.f_set('entity', None).save()
 
+    def odm_ui_m_form_setup(self, frm: _form.Form):
+        super().odm_ui_m_form_setup(frm)
+
+        # Add CSS class to let JS code work with forms of inherited models
+        if self.model != 'content_menu':
+            frm.css += ' odm-ui-form-content_menu'
+
     def odm_ui_m_form_setup_widgets(self, frm: _form.Form):
         super().odm_ui_m_form_setup_widgets(frm)
 

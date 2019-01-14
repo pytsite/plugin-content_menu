@@ -27,7 +27,7 @@ function toggleState(form) {
 }
 
 
-$('form[name=odm_ui_modify_content_menu]').on('ready:form:pytsite', (e, form) => {
+$('.odm-ui-form-content_menu').on('ready:form:pytsite', (e, form) => {
     form.getWidget('is_container').on('change', () => toggleState(form));
     toggleState(form);
 });
