@@ -27,7 +27,7 @@ class ContentMenu(_menu.Menu):
     def _setup_fields(self):
         super()._setup_fields()
 
-        self.get_field('title').required = False
+        self.get_field('title').is_required = False
 
         self.define_field(_odm.field.Bool('is_container'))
         self.define_field(_odm.field.Ref('entity', model_cls=_content.ContentWithURL))
@@ -41,7 +41,7 @@ class ContentMenu(_menu.Menu):
 
         return super()._on_f_get(field_name, value)
 
-    def _after_save(self, first_save: bool = False, **kwargs):
+    def _on_after_save(self, first_save: bool = False, **kwargs):
         if self.is_container:
             if self.entity:
                 self.f_set('entity', None).save()
@@ -70,6 +70,6 @@ class ContentMenu(_menu.Menu):
             uid='entity',
             weight=150,
             label=self.t('content'),
-            required=self.get_field('entity').required,
+            required=self.get_field('entity').is_required,
             value=self.entity,
         ))

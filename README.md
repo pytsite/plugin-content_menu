@@ -4,6 +4,11 @@
 ## Changelog
 
 
+### 1.3 (2019-03-04)
+
+Support of `odm-6.0`.
+
+
 ### 1.2.2 (2019-01-14)
 
 Non-working JS code fixed.
