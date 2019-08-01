@@ -4,6 +4,11 @@
 ## Changelog
 
 
+### 1.5 (2019-08-01)
+
+Support of `content-7.0`.
+
+
 ### 1.4 (2019-04-10)
 
 Support of `content-6.0`.

@@ -4,10 +4,11 @@ __author__ = 'Oleksandr Shepetko'
 __email__ = 'a@shepetko.com'
 __license__ = 'MIT'
 
-from plugins import menu as _menu, form as _form, odm as _odm, content as _content, widget as _widget
+from plugins import form, odm, content, widget
+from plugins.menu import Menu
 
 
-class ContentMenu(_menu.Menu):
+class ContentMenu(Menu):
     @property
     def is_container(self) -> bool:
         return self.f_get('is_container')
@@ -17,11 +18,11 @@ class ContentMenu(_menu.Menu):
         self.f_set('is_container', value)
 
     @property
-    def entity(self) -> _content.ContentWithURL:
+    def entity(self) -> content.ContentWithURL:
         return self.f_get('entity')
 
     @entity.setter
-    def entity(self, value: _content.ContentWithURL):
+    def entity(self, value: content.ContentWithURL):
         self.f_set('entity', value)
 
     def _setup_fields(self):
@@ -29,8 +30,8 @@ class ContentMenu(_menu.Menu):
 
         self.get_field('title').is_required = False
 
-        self.define_field(_odm.field.Bool('is_container'))
-        self.define_field(_odm.field.Ref('entity', model_cls=_content.ContentWithURL))
+        self.define_field(odm.field.Bool('is_container'))
+        self.define_field(odm.field.Ref('entity', model_cls=content.ContentWithURL))
 
     def _on_f_get(self, field_name: str, value, **kwargs):
         if field_name in ('title', 'path') and self.entity:
@@ -46,27 +47,27 @@ class ContentMenu(_menu.Menu):
             if self.entity:
                 self.f_set('entity', None).save()
 
-    def odm_ui_m_form_setup(self, frm: _form.Form):
+    def odm_ui_m_form_setup(self, frm: form.Form):
         super().odm_ui_m_form_setup(frm)
 
         # Add CSS class to let JS code work with forms of inherited models
         if self.model != 'content_menu':
             frm.css += ' odm-ui-form-content_menu'
 
-    def odm_ui_m_form_setup_widgets(self, frm: _form.Form):
+    def odm_ui_m_form_setup_widgets(self, frm: form.Form):
         super().odm_ui_m_form_setup_widgets(frm)
 
         if frm.has_widget('_parent'):
             frm.remove_widget('_parent')
 
-        frm.add_widget(_widget.select.Checkbox(
+        frm.add_widget(widget.select.Checkbox(
             uid='is_container',
             weight=25,
             label=self.t('is_container'),
             value=self.is_container,
         ))
 
-        frm.add_widget(_content.widget.EntitySelect(
+        frm.add_widget(content.widget.EntitySelect(
             uid='entity',
             weight=150,
             label=self.t('content'),
